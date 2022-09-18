@@ -1,0 +1,136 @@
+html,
+body {
+	margin: 0;
+	font-family: roboto, 'Noto Sans Myanmar UI', arial, sans-serif;
+}
+
+.input {
+	padding: 10px;
+	width: max-content;
+	border-radius: 5px;
+	border: 1px solid lightgray;
+	position: relative;
+	transition: all 0.15s;
+}
+
+.input.active {
+	border: 1px solid #0051ff;
+}
+
+.input.error {
+	border: 1px solid red;
+}
+
+.input input {
+	all: unset;
+	position: relative;
+	font-size: 16px;
+	z-index: 1;
+	width: 100%;
+}
+
+.input .placeholder {
+	position: absolute;
+	top: 9px;
+	z-index: 0;
+	user-select: none;
+	background: white;
+	padding: 1px;
+	transition: all 0.15s;
+	font-size: 16px;
+	color: #5a5b60;
+}
+
+.input .placeholder.activecolor {
+	color: #0051ff;
+}
+
+.input .placeholder.active {
+	top: -7px;
+	font-size: 10px;
+}
+
+.input.error .placeholder.active {
+	color: red;
+}
+
+.container {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	padding: 48px 40px 36px;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+}
+
+a {
+	color: #0066ff;
+	text-decoration: none;
+	transition: all 0.15s;
+	padding: 8px;
+	border-radius: 3px;
+}
+
+a:hover {
+	color: #0049b8;
+}
+
+a:active {
+	background-color: #0066ff22;
+}
+
+.button {
+	padding: 8px 18px;
+	border-radius: 5px;
+	background-color: #1a73e8;
+	color: white;
+	user-select: none;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #1560c3;
+	box-shadow: 0 1px 1px 1px #0000002f;
+}
+
+.button:active {
+	background-color: #003f92;
+}
+
+.settings {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+}
+
+.settings a {
+	color: gray;
+	padding: 0px 10px;
+}
+
+select {
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	transition: all 0.15s;
+}
+
+select:active {
+	background-color: #00000019;
+}
+
+.error-message {
+	color: red;
+	display: none;
+	padding: 5px 0;
+}
+
+.error-message.active {
+	display: block;
+}

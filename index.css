@@ -1,0 +1,130 @@
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+.top {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding: 0 10px;
+}
+
+.top .menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.top .menu div > * {
+	margin: 5px;
+}
+
+.logo {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.search {
+	flex: 1.5;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.search-bar {
+	padding: 8px 10px;
+	border-radius: 24px;
+	border: 1px solid lightgray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 600px;
+}
+
+.search-bar > * {
+	margin: 0 8px;
+}
+
+.search-bar:hover {
+	box-shadow: 0 0 5px 2px #00000019;
+}
+
+.search-bar.focus {
+	box-shadow: 0 0 5px 2px #00000019;
+}
+
+.search-input {
+	all: unset;
+	flex: 1;
+	font-size: 18px;
+	padding: 5px 0;
+}
+
+.bottom {
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	color: gray;
+	background-color: #efefef;
+}
+
+.bottom > div {
+	flex: 1;
+	padding: 10px;
+}
+
+.bottom .links {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bottom .links a {
+	color: gray;
+}
+
+.top .menu a {
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.bottom > div:nth-child(1) {
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.t-button {
+	padding: 8px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.t-button:hover {
+	background-color: #00000019;
+}
+
+.buttons {
+	display: flex;
+	width: 300px;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+}
+
+.buttons .button {
+	background-color: #f5f5f5;
+	color: black;
+}
+
+.buttons .button:hover {
+	box-shadow: 0 0 1px 1px lightgray;
+}
