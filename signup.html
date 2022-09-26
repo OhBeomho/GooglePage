@@ -13,6 +13,14 @@
 				width: 800px;
 			}
 
+			.input {
+				padding: 10px;
+			}
+
+			.input .placeholder {
+				top: 9px;
+			}
+
 			.settings {
 				width: 850px;
 			}
@@ -78,19 +86,19 @@
 					<div style="font-size: 26px">Google 계정 만들기</div>
 					<div style="display: flex">
 						<div class="input" id="firstName" style="margin-right: 8px">
+							<input type="text" autocomplete="off" required />
 							<div class="placeholder">성</div>
-							<input type="text" autocomplete="off" />
 						</div>
 						<div class="input" id="lastName">
+							<input type="text" autocomplete="off" required />
 							<div class="placeholder">이름</div>
-							<input type="text" autocomplete="off" />
 						</div>
 					</div>
 					<div class="error-message" id="nameError"></div>
 					<div>
 						<div class="input" id="username" style="width: auto; display: flex">
+							<input type="text" autocomplete="off" required />
 							<div class="placeholder">사용자 이름</div>
-							<input type="text" autocomplete="off" />
 							<div style="user-select: none">@gmail.com</div>
 						</div>
 						<div style="color: gray; margin-left: 10px; font-size: 14px">
@@ -104,12 +112,12 @@
 					<div>
 						<div style="display: flex; margin-top: 10px">
 							<div class="input" id="password" style="margin-right: 8px">
+								<input type="password" autocomplete="new-password" required />
 								<div class="placeholder">비밀번호</div>
-								<input type="password" autocomplete="new-password" />
 							</div>
 							<div class="input" id="confirmPassword">
+								<input type="password" autocomplete="new-password" required />
 								<div class="placeholder">확인</div>
-								<input type="password" autocomplete="new-password" />
 							</div>
 						</div>
 						<div style="color: gray; margin-left: 10px; font-size: 14px">

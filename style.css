@@ -1,3 +1,7 @@
+:root {
+	--primary-color: rgba(0,81,255,1.0);
+}
+
 html,
 body {
 	margin: 0;
@@ -5,7 +9,6 @@ body {
 }
 
 .input {
-	padding: 10px;
 	width: max-content;
 	border-radius: 5px;
 	border: 1px solid lightgray;
@@ -14,7 +17,7 @@ body {
 }
 
 .input.active {
-	border: 1px solid #0051ff;
+	border: 1px solid var(--primary-color);
 }
 
 .input.error {
@@ -31,26 +34,26 @@ body {
 
 .input .placeholder {
 	position: absolute;
-	top: 9px;
 	z-index: 0;
 	user-select: none;
 	background: white;
 	padding: 1px;
 	transition: all 0.15s;
-	font-size: 16px;
-	color: #5a5b60;
+	color: gray;
 }
 
-.input .placeholder.activecolor {
-	color: #0051ff;
+.input input:focus ~ .placeholder {
+	color: var(--primary-color);
 }
 
-.input .placeholder.active {
+.input input:focus ~ .placeholder,
+.input input:valid ~ .placeholder {
 	top: -7px;
 	font-size: 10px;
 }
 
-.input.error .placeholder.active {
+.input.error .placeholder,
+.input.error input:focus ~ .placeholder {
 	color: red;
 }
 
@@ -68,19 +71,19 @@ body {
 	border-radius: 8px;
 }
 
-a {
-	color: #0066ff;
+.form a {
+	color: #005eff;
 	text-decoration: none;
 	transition: all 0.15s;
 	padding: 8px;
 	border-radius: 3px;
 }
 
-a:hover {
-	color: #0049b8;
+.form a:hover {
+	color: var(--primary-color);
 }
 
-a:active {
+.form a:active {
 	background-color: #0066ff22;
 }
 
@@ -95,7 +98,7 @@ a:active {
 
 .button:hover {
 	background-color: #1560c3;
-	box-shadow: 0 1px 1px 1px #0000002f;
+	box-shadow: 0 1px 1px 1px #0000003f;
 }
 
 .button:active {
@@ -111,7 +114,12 @@ a:active {
 
 .settings a {
 	color: gray;
+	text-decoration: none;
 	padding: 0px 10px;
+}
+
+.settings a:hover {
+	text-decoration: underline;
 }
 
 select {

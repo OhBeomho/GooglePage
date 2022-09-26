@@ -35,10 +35,6 @@
 				font-size: 18px;
 			}
 
-			.input .placeholder.active {
-				font-size: 10px;
-			}
-
 			.change-acc {
 				display: flex;
 				align-items: center;
@@ -114,8 +110,8 @@
 				</div>
 				<div style="width: 100%">
 					<div class="input" id="emailOrNum" style="width: 90%; margin: auto; margin-bottom: 10px">
+						<input type="text" autocomplete="off" required />
 						<div class="placeholder">이메일 또는 휴대전화</div>
-						<input type="text" autocomplete="off" />
 					</div>
 					<div class="error-message" id="emailError"></div>
 					<a href="#">이메일을 잊으셨나요?</a>
@@ -196,9 +192,13 @@
 					</div>
 				</div>
 				<div style="width: 100%">
-					<div class="input" id="emailOrNum" style="width: 90%; margin: auto; margin-bottom: 10px">
+					<div class="input" id="password" style="width: 90%; margin: auto; margin-bottom: 10px">
+						<input type="password" autocomplete="off" required />
 						<div class="placeholder">비밀번호 입력</div>
-						<input type="text" autocomplete="off" />
+					</div>
+					<div style="user-select: none">
+						<input type="checkbox" id="showPassword" />
+						<span id="showPasswordText">비밀번호 표시</span>
 					</div>
 					<div class="error-message" id="passwordError"></div>
 				</div>
@@ -225,40 +225,63 @@
 
 		<script>
 			const errorSvg =
-				'<svg aria-hidden="true" class="stUf5b LxE1Id" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>';
+				'<svg aria-hidden="true" class="stUf5b LxE1Id" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>'
 
 			document.getElementById('next1').addEventListener('click', () => {
-				const emailOrNum = document.getElementById('emailOrNum');
-				const emailError = document.getElementById('emailError');
+				const emailOrNum = document.getElementById('emailOrNum')
+				const emailError = document.getElementById('emailError')
 
-				emailOrNum.classList.remove('error');
-				emailError.classList.remove('active');
-				emailError.innerText = '';
+				emailOrNum.classList.remove('error')
+				emailError.classList.remove('error')
+				emailError.innerText = ''
 
 				if (!emailOrNum.querySelector('input').value) {
-					emailError.innerText = '이메일이나 전화번호를 입력하세요.';
-					emailOrNum.classList.add('error');
+					emailError.innerText = '이메일이나 전화번호를 입력하세요.'
+					emailOrNum.classList.add('error')
 				}
 
 				if (emailError.innerText) {
-					emailError.innerHTML = errorSvg + '&nbsp;' + emailError.innerText;
-					emailError.classList.add('active');
-					return;
+					emailError.innerHTML = errorSvg + '&nbsp;' + emailError.innerText
+					emailError.classList.add('active')
+					return
 				}
 
-				document.querySelector('.form#f1').style.display = 'none';
-				document.querySelector('.form#f2').style.display = 'flex';
+				document.querySelector('.form#f1').style.display = 'none'
+				document.querySelector('.form#f2').style.display = 'flex'
 
-				let value = emailOrNum.querySelector('input').value;
-				let text = value;
-				if (!/\d{2,3}-\d{3,4}-\d{4}/g.test(value)) text += '@gmail.com';
+				let value = emailOrNum.querySelector('input').value
+				let text = value
+				if (!/\d{2,3}-\d{3,4}-\d{4}/g.test(value)) text += '@gmail.com'
 
-				document.querySelector('.change-acc .text').innerText = text;
-			});
+				document.querySelector('.change-acc .text').innerText = text
+			})
+			document.getElementById('next2').addEventListener('click', () => {
+				const passwordInput = document.getElementById('password')
+				const passwordError = document.getElementById('passwordError')
+
+				passwordInput.classList.remove('error')
+				passwordError.classList.remove('error')
+				passwordError.innerText = ''
+
+				if (!passwordInput.querySelector('input').value) passwordError.innerText = '비밀번호를 입력하세요.'
+				else if (passwordInput.querySelector('input').value.length < 8)
+					passwordError.innerText = '비밀번호는 8자 이상입니다.'
+
+				if (passwordError.innerText) {
+					passwordError.innerHTML = errorSvg + '&nbsp;' + passwordError.innerText
+					passwordError.classList.add('active')
+					passwordInput.classList.add('error')
+				}
+			})
 			document.querySelector('.change-acc').addEventListener('click', () => {
-				document.querySelector('.form#f2').style.display = 'none';
-				document.querySelector('.form#f1').style.display = 'flex';
-			});
+				document.querySelector('.form#f2').style.display = 'none'
+				document.querySelector('.form#f1').style.display = 'flex'
+			})
+
+			const showPassword = document.getElementById('showPassword')
+			const showPasswordText = document.getElementById('showPasswordText')
+
+			showPasswordText.addEventListener('click', () => (showPassword.checked = !showPassword.checked))
 		</script>
 		<script src="./input.js"></script>
 	</body>
